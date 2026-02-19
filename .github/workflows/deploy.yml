@@ -28,3 +28,9 @@ jobs:
             --delete \
             --exclude ".git/*" \
             --exclude ".github/*"
+    
+      - name: Clear cloudfront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E3163CTHV7NYCS \
+            --paths "/" "/*"
